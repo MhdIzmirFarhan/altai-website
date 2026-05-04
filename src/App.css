@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #34A8C0;
+  --accent-hover: #2a8fa6;
+  --text: #080B12;
+  --muted: rgba(8, 11, 18, 0.5);
+  --border: rgba(8, 11, 18, 0.08);
+  --bg: #F1F4F7;
+  --bg-card: #FFFFFF;
+}
+
+h1 { color: var(--text); }
+.desc { color: var(--muted); }
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* === HERO PAGE === */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Subtle dot grid — replaces dark grid overlay */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(52,168,192,0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Soft accent blobs — light version */
+.app::before,
+.app::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(100px);
+}
+.app::before {
+  width: 560px; height: 560px;
+  background: rgba(43, 91, 240, 0.07);
+  top: -160px; right: 0;
+}
+.app::after {
+  width: 400px; height: 400px;
+  background: rgba(0, 180, 140, 0.06);
+  bottom: -80px; left: 5%;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 64px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(244, 246, 250, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.nav-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px; text-decoration: none;
+  letter-spacing: 0.4px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* HERO CENTER */
+.hero-center {
+  position: relative;   /* was absolute */
+  inset: unset;         /* remove inset */
+  z-index: 10;
+  flex: 1;              /* takes up all available space */
+  min-height: 100vh;    /* stays full screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding-top: 80px;    /* clears the nav height */
+}
+
+.hero-caption { text-align: center; }
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px; line-height: 0.9;
+  letter-spacing: 3px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+h1 .accent { color: var(--accent); }
+
+.desc {
+  color: var(--muted);
+  font-size: 15px; line-height: 1.75;
+  font-weight: 300; max-width: 380px;
+  margin: 0 auto 28px;
+}
+
+.btns { display: flex; gap: 12px; justify-content: center; }
+
+.btn-primary {
+  background: var(--accent); color: #fff;
+  border: none; padding: 13px 26px;
+  border-radius: 8px; font-size: 13px;
+  font-family: 'DM Sans', sans-serif; font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(13, 27, 42, 0.18);
+  padding: 13px 26px; border-radius: 8px;
+  font-size: 13px; font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(13,27,42,0.4); color: var(--text); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  h1 { font-size: 48px; }
+}
