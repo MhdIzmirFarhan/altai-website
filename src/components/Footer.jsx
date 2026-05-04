@@ -9,7 +9,7 @@ const Footer = () => {
 
         {/* Left — brand */}
         <div className="footer-brand">
-          <img src={asset('logo.png')} alt="Maxxtech System" className="nav-logo" />
+          <img src={asset('logo.png')} alt="Maxxtech System" className="footer-logo" />
           <p className="footer-tagline">
             Precision RFID solutions for enterprise inventory and asset management.
           </p>
@@ -30,8 +30,8 @@ const Footer = () => {
           <a href="mailto:hello@altai-rfid.com">hello@altai-rfid.com</a>
           <a href="tel:+12345678910">+1 (234) 567-891</a>
           <p className="footer-address">
-            B-10-09 Menara B, Dataran Prima<br />
-            Petaling Jaya, 47301 Selangor
+            A-07-08 Block A, Manara Prima,<br />
+            Jalan PJU 1/39, Dataran Prima, 47301 Petaling Jaya, Selangor
           </p>
         </div>
 

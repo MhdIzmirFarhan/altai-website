@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="info-label">Location</p>
-                <p className="info-value">B-10-09 Menara B Manara Prima, Jalan PJU 1/39, Dataran Prima, 47301 Petaling Jaya</p>
+                <p className="info-value">A-07-08 Block A, Manara Prima, Jalan PJU 1/39, Dataran Prima, 47301 Petaling Jaya</p>
                 <p className="info-value">Selangor Petaling Jaya, 47301 Selangor</p>
               </div>
             </div>
