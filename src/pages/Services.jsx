@@ -1,83 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import '../styles/Services.css';
-
-import { asset } from '../config'
-
-const SERVICES_DATA = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect x="2" y="6" width="18" height="10" rx="1.5" stroke="#34A8C0" strokeWidth="1.1"/>
-        <path d="M6 10h10M6 13h6" stroke="#34A8C0" strokeWidth="1.1" strokeLinecap="round"/>
-        <circle cx="17" cy="13" r="1.5" fill="#7EC3D1"/>
-      </svg>
-    ),
-    title: 'Warehouse Management',
-    description: 'Streamline stock movement and picking accuracy through automated RFID identification. Turn your warehouse floor into a live, data-rich environment.',
-    badge: 'WMS',
-    stat: '99%+',
-    statLabel: 'Inventory Accuracy',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <circle cx="11" cy="11" r="7" stroke="#34A8C0" strokeWidth="1.1"/>
-        <circle cx="11" cy="11" r="3" stroke="#7EC3D1" strokeWidth="1.1"/>
-        <circle cx="11" cy="11" r="1.2" fill="#34A8C0"/>
-        <path d="M11 4v2M11 16v2M4 11h2M16 11h2" stroke="#34A8C0" strokeWidth="1.1" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Asset Tracking',
-    description: 'Real-time lifecycle management for critical infrastructure and high-value equipment. Know where every asset is — always.',
-    badge: 'AMS',
-    stat: '< 1s',
-    statLabel: 'Scan Response',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect x="2" y="2" width="7" height="7" rx="1.2" stroke="#34A8C0" strokeWidth="1.1"/>
-        <rect x="13" y="2" width="7" height="7" rx="1.2" stroke="#34A8C0" strokeWidth="1.1"/>
-        <rect x="2" y="13" width="7" height="7" rx="1.2" stroke="#34A8C0" strokeWidth="1.1"/>
-        <rect x="13" y="13" width="7" height="7" rx="1.2" stroke="#7EC3D1" strokeWidth="1.1"/>
-        <path d="M9 5.5h4M9 16.5h4M16.5 9v4M5.5 9v4" stroke="#34A8C0" strokeWidth="1" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Enterprise Integration',
-    description: 'Seamless ERP and API interfacing with zero disruption and full data integrity. Designed to slot into your existing stack on day one.',
-    badge: 'ERP / API',
-    stat: '100%',
-    statLabel: 'Uptime Target',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M3 16l4-5 3 3 4-6 5 5" stroke="#34A8C0" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect x="2" y="2" width="18" height="18" rx="2" stroke="#34A8C0" strokeWidth="1.1"/>
-        <circle cx="17" cy="6" r="1.5" fill="#7EC3D1"/>
-      </svg>
-    ),
-    title: 'Analytics & Reporting',
-    description: 'Live dashboards and historical reporting to surface actionable insights from your RFID data stream. Decisions backed by real numbers.',
-    badge: 'Insights',
-    stat: 'Live',
-    statLabel: 'Data Feed',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M11 2l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z" stroke="#34A8C0" strokeWidth="1.1" strokeLinejoin="round"/>
-        <path d="M8 11l2 2 4-4" stroke="#7EC3D1" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    title: 'Security & Compliance',
-    description: 'Audit trails, access control, and compliance frameworks built into every deployment. Industrial-grade protection for your data and assets.',
-    badge: 'Security',
-    stat: 'ISO',
-    statLabel: 'Grade Standards',
-  },
-];
-
+import { asset } from '../config';
 
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
@@ -95,39 +18,75 @@ function useInView(threshold = 0.15) {
   return [ref, inView];
 }
 
+const PRODUCTS = [
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect x="3" y="7" width="22" height="14" rx="2" stroke="#34A8C0" strokeWidth="1.2"/>
+        <path d="M8 12h12M8 16h8" stroke="#34A8C0" strokeWidth="1.2" strokeLinecap="round"/>
+        <circle cx="21" cy="16" r="2" fill="#7EC3D1"/>
+      </svg>
+    ),
+    title: 'Altai RFID',
+    badge: 'Core',
+    desc: 'End-to-end RFID infrastructure for warehouse management, inventory accuracy, and asset tracking — built on commercial-grade hardware.',
+    stat: '99%+',
+    statLabel: 'Inventory Accuracy',
+    href: 'https://www.altai-rfid.com',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="9" stroke="#34A8C0" strokeWidth="1.2"/>
+        <path d="M10 14c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#34A8C0" strokeWidth="1.2" strokeLinecap="round"/>
+        <circle cx="14" cy="14" r="2" fill="#7EC3D1"/>
+        <path d="M14 5v2M14 21v2M5 14h2M21 14h2" stroke="#34A8C0" strokeWidth="1.1" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Altai AI',
+    badge: 'Intelligence',
+    desc: 'AI-powered analytics layered on top of your RFID data — surfacing predictive insights, anomaly detection, and automated decision support.',
+    stat: 'Real-time',
+    statLabel: 'AI Insights',
+    href: 'https://www.altai-rfid.com',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect x="3" y="5" width="22" height="14" rx="2" stroke="#34A8C0" strokeWidth="1.2"/>
+        <path d="M10 19v4M18 19v4M7 23h14" stroke="#34A8C0" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M8 10h12M8 13h8" stroke="#7EC3D1" strokeWidth="1.1" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Digital Signage',
+    badge: 'Display',
+    desc: 'Smart display solutions that integrate with your RFID system — delivering live inventory status, alerts, and operational data to your floor.',
+    stat: 'Live',
+    statLabel: 'Data Display',
+    href: 'https://www.altai-rfid.com',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect x="9" y="3" width="10" height="10" rx="2" stroke="#34A8C0" strokeWidth="1.2"/>
+        <circle cx="14" cy="8" r="2" fill="#7EC3D1"/>
+        <path d="M6 13h16v2a8 8 0 01-16 0v-2z" stroke="#34A8C0" strokeWidth="1.2"/>
+        <path d="M4 20h20M10 23v2M18 23v2" stroke="#34A8C0" strokeWidth="1.2" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Robots',
+    badge: 'Automation',
+    desc: 'Autonomous robotic systems integrated with RFID for automated scanning, stock movement, and warehouse floor operations.',
+    stat: '24/7',
+    statLabel: 'Operations',
+    href: 'https://www.altai-rfid.com',
+  },
+];
+
 const Services = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [hovered, setHovered] = useState(null);
   const [heroRef, heroInView] = useInView(0.1);
-  const [gridRef, gridInView] = useInView(0.1);
-  const [expandedCard, setExpandedCard] = useState(null)
-
-  const ITEM_WIDTH = 280;
-  const GAP = 14;
-
-  const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(0);
-  
-  useEffect(() => {
-    const measure = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
-
-  const offset = (containerWidth / 2) - (ITEM_WIDTH / 2);
-  const translate = currentIndex * (ITEM_WIDTH + GAP) - offset;
-  
-  useEffect(() => {
-    const timer = setInterval(() => {
-    setCurrentIndex(prev => (prev + 1) % SERVICES_DATA.length);   
-  }, 3500);
-    return () => clearInterval(timer);
-  }, []);
+  const [cardsRef, cardsInView] = useInView(0.1);
 
   return (
     <div className="services-page">
@@ -149,84 +108,57 @@ const Services = () => {
             For Enterprise
           </h1>
           <p className="services-lead">
-            Altai's enterprise RFID platform powers end-to-end visibility 
-            across warehouses, logistics operations, and asset-heavy environments. 
-            Every service is built on commercial-grade hardware and engineered 
+            Altai's enterprise RFID platform powers end-to-end visibility
+            across warehouses, logistics operations, and asset-heavy environments.
+            Every service is built on commercial-grade hardware and engineered
             for the precision demands of modern supply chains.
           </p>
         </div>
-
-        {/* scan line */}
         <div className="scan-line" />
       </section>
 
-      {/* ── SERVICE CARDS ── */}
-      <section className="cards-section">
+      {/* ── PRODUCT CARDS ── */}
+      <section className="cards-section" ref={cardsRef}>
+        <div className="cards-intro">
+          <a
+            href="https://www.altai-rfid.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cards-link-btn"
+          >
+            Visit Altai Website →
+          </a>
+        </div>
+
         <div className="cards-grid">
-          {SERVICES_DATA.map((s, i) => (
+          {PRODUCTS.map((p, i) => (
             <div
               key={i}
-              className={`service-card ${expandedCard === i ? 'expanded' : ''}`}
-              onClick={() => setExpandedCard(expandedCard === i ? null : i)}
-            >
-              <div className="sc-header">
-                <div className="ci-icon">{s.icon}</div>
-                <div className="sc-header-right">
-                  <span className="ci-badge">{s.badge}</span>
-                  <span className="sc-arrow">{expandedCard === i ? '↑' : '↓'}</span>
-                </div>
-              </div>
-      
-              <div className="sc-title">{s.title}</div>
-      
-              <div className="sc-expandable">
-                <p className="ci-desc">{s.description}</p>
-                <div className="ci-footer">
-                  <span className="ci-stat">{s.stat}</span>
-                  <span className="ci-stat-label">{s.statLabel}</span>
-                </div>
-              </div>
-      
-              {expandedCard !== i && (
-                <p className="ci-hint">Click to learn more</p>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── FULL GRID ── */}
-      <section className="services-grid-section" ref={gridRef}>
-        <div className="services-grid-header">
-          <div className="section-eyebrow">
-            <span className="eyebrow-bar" />
-            All Capabilities
-          </div>
-          <h2 className="services-grid-h2">
-            Every layer of your<br />operation, covered.
-          </h2>
-        </div>
-
-        <div className="services-grid">
-          {SERVICES_DATA.map((s, i) => (
-            <div
-              key={i}
-              className={`sg-card ${gridInView ? 'visible' : ''}`}
+              className={`product-card ${cardsInView ? 'visible' : ''}`}
               style={{ transitionDelay: `${i * 90}ms` }}
-              onMouseEnter={() => setHovered(`g${i}`)}
+              onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
             >
-              <div className="sg-top">
-                <div className="sg-icon">{s.icon}</div>
-                <span className="sg-badge">{s.badge}</span>
+              <div className="pc-icon">{p.icon}</div>
+              <div className="pc-top">
+                <span className="pc-badge">{p.badge}</span>
               </div>
-              <h3 className="sg-title">{s.title}</h3>
-              <p className="sg-desc">{s.description}</p>
-              <div className="sg-stat-row">
-                <span className="sg-stat">{s.stat}</span>
-                <span className="sg-stat-label">{s.statLabel}</span>
+              <h3 className="pc-title">{p.title}</h3>
+              <p className="pc-desc">{p.desc}</p>
+              <div className="pc-footer">
+                <div className="pc-stat-row">
+                  <span className="pc-stat">{p.stat}</span>
+                  <span className="pc-stat-label">{p.statLabel}</span>
+                </div>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pc-link"
+                >
+                  Learn more →
+                </a>
               </div>
-              <div className={`sg-glow ${hovered === `g${i}` ? 'on' : ''}`} />
             </div>
           ))}
         </div>
@@ -240,7 +172,7 @@ const Services = () => {
             <p className="cta-eyebrow">Ready to optimize your inventory flow?</p>
             <h2 className="cta-h2">Request a technical consultation.</h2>
           </div>
-          <a href="#contact" className="cta-btn">
+          <a href="/contact" className="cta-btn">
             Contact Our Team
             <span className="cta-btn-arrow">→</span>
           </a>

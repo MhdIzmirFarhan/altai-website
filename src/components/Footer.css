@@ -18,14 +18,14 @@
 
 /* Brand col */
 .footer-logo {
-  height: 32px;
+  height: 45px;
   width: auto;
   object-fit: contain;
   margin: 0 auto 16px;
   display: block;
 }
 .footer-tagline {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 300;
   color: rgba(13, 27, 42, 0.5);
   line-height: 1.7;
@@ -39,14 +39,14 @@
   gap: 10px;
 }
 .footer-col-title {
-  font-size: 11px;
+  font-size: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(13, 27, 42, 0.35);
   margin-bottom: 4px;
 }
 .footer-col a {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 300;
   color: rgba(13, 27, 42, 0.6);
   text-decoration: none;
@@ -62,7 +62,7 @@
 }
 
 .footer-address {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 300;
   color: rgba(13, 27, 42, 0.5);
   line-height: 1.65;

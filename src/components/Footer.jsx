@@ -27,8 +27,8 @@ const Footer = () => {
         {/* Right — contact info */}
         <div className="footer-col">
           <p className="footer-col-title">Contact</p>
-          <a href="mailto:hello@altai-rfid.com">hello@altai-rfid.com</a>
-          <a href="tel:+12345678910">+1 (234) 567-891</a>
+          <a href="mailto:support@maxxtech.tech">support@maxxtech.tech</a>
+          <a href="tel:+60166458154">+6 (016)-645 8154</a>
           <p className="footer-address">
             A-07-08 Block A, Manara Prima,<br />
             Jalan PJU 1/39, Dataran Prima, 47301 Petaling Jaya, Selangor
