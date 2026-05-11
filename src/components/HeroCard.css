@@ -1,0 +1,114 @@
+.card-outer {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Rings */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ring-1 {
+  inset: 0;
+  border: 1px solid rgba(43, 91, 240, 0.25);
+  animation: ringRotate 14s linear infinite;
+}
+.ring-2 {
+  inset: 10px;
+  border: 1px solid rgba(0, 180, 140, 0.15);
+  animation: ringRotate 20s linear infinite reverse;
+}
+.ring-3 {
+  inset: 22px;
+  border: 1px solid rgba(13, 27, 42, 0.06);
+  animation: ringRotate 30s linear infinite;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Dot on ring-1 */
+.ring-dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #34A8C0;
+  border-radius: 50%;
+  top: -4.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px 2px rgba(43, 91, 240, 0.35);
+}
+
+/* Inner circle — default */
+.card-inner {
+  position: absolute;
+  inset: 28px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  background: rgba(244, 246, 250, 0.7);
+  border: 1px solid rgba(43, 91, 240, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition: background 0.45s ease,
+              border-color 0.45s ease,
+              box-shadow 0.45s ease;
+}
+
+/* Hover: lifted white glass */
+.card-outer:hover .card-inner {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(43, 91, 240, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(43, 91, 240, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Clicked/active: full glass with blue accent */
+.card-outer.active .card-inner {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(43, 91, 240, 0.35);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow:
+    0 12px 48px rgba(43, 91, 240, 0.14),
+    0 0 0 3px rgba(43, 91, 240, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Text */
+.card-title {
+  font-family: monospace, monospace;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: #34A8C0;
+  text-align: center;
+  line-height: 1;
+}
+.card-sub {
+  font-size: 11px;
+  color: rgba(13, 27, 42, 0.38);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.card-badge {
+  font-size: 10px;
+  color: #34A8C0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
